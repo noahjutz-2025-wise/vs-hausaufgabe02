@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.noahjutz</groupId>
-    <artifactId>vs-hausaufgabe01</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>vs-hausaufgabe02</artifactId>
+    <version>0.0.1</version>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
