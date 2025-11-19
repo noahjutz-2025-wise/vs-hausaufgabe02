@@ -11,9 +11,9 @@ import java.io.IOException;
 
 class Service extends HelloServiceGrpc.HelloServiceImplBase {
   @Override
-  public void sayHello(HelloWorld request, StreamObserver<Empty> responseObserver) {
+  public void sayHello(HelloWorld request, StreamObserver<HelloWorld> responseObserver) {
     System.out.println(request);
-    responseObserver.onNext(Empty.newBuilder().build());
+    responseObserver.onNext(HelloWorld.newBuilder().setHello("Hello from server!").build());
     responseObserver.onCompleted();
   }
 }

@@ -12,6 +12,7 @@ public class Consumer {
 
     var stub = HelloServiceGrpc.newBlockingStub(channel);
 
-    stub.sayHello(HelloWorld.newBuilder().setHello("Hiiii :3").build());
+    var response = stub.sayHello(HelloWorld.newBuilder().setHello("Hiiii :3").build());
+    System.out.println(response);
   }
 }

@@ -8,5 +8,5 @@ message HelloWorld {
 }
 
 service HelloService {
-  rpc sayHello(HelloWorld) returns (google.protobuf.Empty);
+  rpc sayHello(HelloWorld) returns (HelloWorld);
 }
