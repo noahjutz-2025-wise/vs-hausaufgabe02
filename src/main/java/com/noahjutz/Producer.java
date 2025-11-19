@@ -14,6 +14,8 @@ class Service extends HelloServiceGrpc.HelloServiceImplBase {
   public void sayHello(HelloWorld request, StreamObserver<HelloWorld> responseObserver) {
     System.out.println(request);
     responseObserver.onNext(HelloWorld.newBuilder().setHello("Hello from server!").build());
+    responseObserver.onNext(HelloWorld.newBuilder().setHello("Hello from server 2!").build());
+    responseObserver.onNext(HelloWorld.newBuilder().setHello("Hello from server 3!").build());
     responseObserver.onCompleted();
   }
 }
