@@ -8,5 +8,5 @@ message HelloWorld {
 }
 
 service HelloService {
-  rpc sayHello(HelloWorld) returns (stream HelloWorld);
+  rpc sayHello(HelloWorld) returns (HelloWorld);
 }
