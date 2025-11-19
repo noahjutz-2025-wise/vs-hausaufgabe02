@@ -11,12 +11,27 @@ import java.io.IOException;
 
 class Service extends HelloServiceGrpc.HelloServiceImplBase {
   @Override
-  public void sayHello(HelloWorld request, StreamObserver<HelloWorld> responseObserver) {
-    System.out.println(request);
+  public StreamObserver<HelloWorld> sayHello(StreamObserver<HelloWorld> responseObserver) {
     responseObserver.onNext(HelloWorld.newBuilder().setHello("Hello from server!").build());
     responseObserver.onNext(HelloWorld.newBuilder().setHello("Hello from server 2!").build());
     responseObserver.onNext(HelloWorld.newBuilder().setHello("Hello from server 3!").build());
-    responseObserver.onCompleted();
+    //responseObserver.onCompleted();
+    return new StreamObserver<>() {
+      @Override
+      public void onNext(HelloWorld helloWorld) {
+        System.out.println(helloWorld);
+      }
+
+      @Override
+      public void onError(Throwable throwable) {
+        throwable.printStackTrace();
+      }
+
+      @Override
+      public void onCompleted() {
+        System.out.println("onCompleted");
+      }
+    };
   }
 }
 
